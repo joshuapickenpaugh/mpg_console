@@ -10,6 +10,16 @@ namespace GasMileage
     {
         static void Main(string[] args)
         {
+            int intMilesDriven;
+            int intGallonsUsed;
+
+            Console.WriteLine("Input the miles driven:");
+            intMilesDriven = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Input the gallons used:");
+            intGallonsUsed = Convert.ToInt32(Console.ReadLine());
+
+
         }
     }
 }
