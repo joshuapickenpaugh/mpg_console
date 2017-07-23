@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Joshua Pickenpaugh
+//July 23, 2017
+//MPG Console application. 
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,10 +18,12 @@ namespace GasMileage
             int intChoice = 1;
             int intMiles = 0;
             int intGallons = 0;
-            float fltMPG = 0;
-            string strMPG;
+            float fltMpg = 0;
+            string strMpg;
+            string strAveMpg;
             float fltAverageMpg = 0;
 
+            //List to hold the MPGs:
             List<float> MpgList = new List<float>();
 
 
@@ -30,19 +36,22 @@ namespace GasMileage
                 //Asks user for input:
                 Console.Write("Input the gallons used to fill up tank:");
                 intGallons = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
 
                 //Gets the individual MPG for this round of user input, adds it to the list of MPGs:
-                fltMPG = IndividualMPG(intMiles, intGallons);
-                MpgList.Add(fltMPG);
+                fltMpg = IndividualMPG(intMiles, intGallons);
+                MpgList.Add(fltMpg);
 
                 //Gets average of individual tanks:
                 fltAverageMpg = AverageTankMPG(MpgList);
 
-                //Displays average MPG:
-                strMPG = fltMPG.ToString("N2");
+                //Converts ind. and average MPGs to hundreths:
+                strMpg = fltMpg.ToString("N2");
+                strAveMpg = fltAverageMpg.ToString("N2");
 
                 //Displays:
-                Console.WriteLine("Individual Tank MPG: {0}", strMPG);
+                Console.WriteLine("Individual Tank MPG: {0}", strMpg);
+                Console.WriteLine("Average MPG: {0}", strAveMpg);
 
                 //User selection menu:
                 Console.WriteLine("_________________________________");
@@ -67,15 +76,20 @@ namespace GasMileage
         public static float AverageTankMPG(List<float> mpglist)
         {
             float avgMpg = 0;
+            float listTtl = 0;
+            int listCount = 0;
 
-            //Gets each value in list, adds them up:
+            //Sums the values in the mpg list:
+            listTtl = mpglist.Sum();
 
             //Gets Count of values in list:
+            listCount = mpglist.Count();
 
             //Divides total value sum by Count:
+            avgMpg = listTtl / listCount;
 
             //Return average MPG:
-            return
+            return avgMpg;
         }
     }
 }
